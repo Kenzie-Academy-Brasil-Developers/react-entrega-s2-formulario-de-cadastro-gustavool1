@@ -1,0 +1,13 @@
+.error-route{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.error-route h1{
+    font-size: 28px;
+}
+.error-route button{
+    width: 180px;
+}

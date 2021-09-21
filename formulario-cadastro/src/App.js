@@ -3,6 +3,7 @@ import Form from './components/Form';
 import {Switch, Route} from 'react-router-dom'
 import Logged from './components/Logged';
 import { useState } from 'react';
+import ErrorRoute from './components/ErrorRoute';
 function App() {
   const [ userData ,setUserData ] = useState(null)
   return (
@@ -12,8 +13,11 @@ function App() {
             <Route exact path='/'>
               <Form setUserData={ setUserData }/>
             </Route>
-            <Route  path='/logged/:name'>
+            <Route  exact path='/logged/:name'>
                 <Logged userData={ userData } setUserData={ setUserData }/>
+            </Route>
+            <Route>
+                <ErrorRoute/>
             </Route>
           </Switch>
       </header>
