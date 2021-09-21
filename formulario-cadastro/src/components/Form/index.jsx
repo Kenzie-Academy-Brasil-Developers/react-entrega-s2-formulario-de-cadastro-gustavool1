@@ -8,7 +8,7 @@ import FormAnimated from "../../Motion/FormAnimated"
 const Form = ({ setUserData }) =>{
     const history = useHistory()
     const formScheme = yup.object().shape({
-        name: yup.string().required("Nome obrigatório").min(4, 'Seu nome precisa ter no minimo 3 letras'),
+        name: yup.string().required("Nome obrigatório").min(4, 'Seu nome precisa ter no minimo 3 letras').matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, 'Seu nome só pode ter letras'),
         email: yup.string().required("Email obrigatório").email("Informe um email válido"),
         confirmEmail: yup.string().required("Confirmação de email obrigatória").oneOf([yup.ref('email')], 'Os email não são iguais'),
         password: yup.string().required("Senha obrigatória").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/, 'Sua senha precisa conter: no mínimo 8 caracteres. 1 letra maiúscula no mínimo. 1 Número. 1 símbolo &@#*$.'),
